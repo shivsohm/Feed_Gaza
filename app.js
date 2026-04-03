@@ -682,14 +682,24 @@ function timeAgoLabel(isoStr) {
 if (window.supabase) {
   const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  // Load recent real donations into the wall on page load
+  // Load recent real donations into the wall + seed progress bar from real total
   db.from('donations')
     .select('*')
     .order('created_at', { ascending: false })
-    .limit(20)
+    .limit(100)
     .then(({ data }) => {
       if (!data || data.length === 0) return;
-      [...data].reverse().forEach(d => {
+
+      // Sum all real donations and override the simulated progress
+      const realTotal = data.reduce((sum, d) => sum + (d.amount || 0), 0);
+      if (realTotal > 0) {
+        liveRaised = realTotal % GOAL;
+        displayedRaised = 0;
+        animateToAmount(liveRaised);
+      }
+
+      // Populate wall with recent 20
+      [...data].slice(0, 20).reverse().forEach(d => {
         addDonorToWall(
           { name: d.name, amount: d.amount, freq: d.frequency, location: '' },
           timeAgoLabel(d.created_at)
