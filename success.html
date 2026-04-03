@@ -95,6 +95,44 @@
       text-decoration: none;
       font-weight: 600;
     }
+    .name-form {
+      margin: 24px 0 0;
+      display: flex;
+      gap: 8px;
+    }
+    .name-form input {
+      flex: 1;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(42,173,106,0.3);
+      border-radius: 100px;
+      padding: 12px 18px;
+      color: white;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+    }
+    .name-form input::placeholder { color: rgba(255,255,255,0.35); }
+    .name-form input:focus { border-color: rgba(42,173,106,0.7); }
+    .name-form button {
+      background: #1a7a4a;
+      color: white;
+      border: none;
+      border-radius: 100px;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .name-form button:hover { background: #2aad6a; }
+    .name-submitted {
+      margin-top: 16px;
+      font-size: 13px;
+      color: #2aad6a;
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -108,6 +146,11 @@
     <h1>JazakAllahu Khayran</h1>
     <div class="amount" id="donationAmount"></div>
     <p>Your donation has been received. May Allah accept it from you, multiply your reward, and count it as a sadaqah that reaches the most vulnerable on Earth.</p>
+    <div class="name-form" id="nameForm">
+      <input type="text" id="donorName" placeholder="Your first name (optional)" maxlength="40" />
+      <button onclick="submitName()">Add to wall</button>
+    </div>
+    <div class="name-submitted" id="nameSubmitted">✓ Your name is on the wall</div>
     <p class="hadith">"Charity does not decrease wealth. No one forgives another except that Allah increases his honour." — Prophet Muhammad ﷺ (Sahih Muslim)</p>
     <a href="/" class="btn">Return to FeedGaza</a>
     <div class="share">
@@ -135,20 +178,44 @@
     const SUPABASE_URL = 'https://rrntykdeodgcxwacchlh.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJybnR5a2Rlb2RnY3h3YWNjaGxoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUxODYzNDIsImV4cCI6MjA5MDc2MjM0Mn0.w0Psfg_k7xmeoWBF0F4UTWpvOcZWs3dWhStqCeaWq58';
 
-    if (amount && window.supabase) {
-      // Avoid duplicate inserts if user refreshes the page
+    let db = null;
+    if (window.supabase) {
+      db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    }
+
+    function submitName() {
+      const input = document.getElementById('donorName');
+      const name = input.value.trim() || 'Anonymous';
       const key = `donated_${window.location.search}`;
-      if (!sessionStorage.getItem(key)) {
-        sessionStorage.setItem(key, '1');
-        const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      if (sessionStorage.getItem(key)) return;
+      sessionStorage.setItem(key, '1');
+
+      if (db) {
         db.from('donations').insert({
-          name: 'Anonymous',
+          name,
           amount: parseFloat(amount),
-          type: type,
+          type,
           frequency: freq || 'once'
         });
       }
+
+      document.getElementById('nameForm').style.display = 'none';
+      document.getElementById('nameSubmitted').style.display = 'block';
     }
+
+    // Auto-submit as Anonymous if they leave without entering a name
+    window.addEventListener('beforeunload', () => {
+      const key = `donated_${window.location.search}`;
+      if (!sessionStorage.getItem(key) && db && amount) {
+        sessionStorage.setItem(key, '1');
+        db.from('donations').insert({
+          name: 'Anonymous',
+          amount: parseFloat(amount),
+          type,
+          frequency: freq || 'once'
+        });
+      }
+    });
   </script>
 </body>
 </html>
