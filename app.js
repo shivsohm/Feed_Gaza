@@ -607,10 +607,12 @@ function getTimeAgo() {
 // Each toast gets a unique id so multiple can stack
 let toastCount = 0;
 
-function addDonorToWall(donor) {
+function addDonorToWall(donor, timeLabel) {
   const grid = document.getElementById('wallGrid');
   if (!grid) return;
   const freqLabel = donor.freq === 'monthly' ? '/mo' : '';
+  const locationStr = donor.location ? `${donor.location} · ` : '';
+  const time = timeLabel || 'Just now';
   const card = document.createElement('div');
   card.className = 'wall-card';
   card.innerHTML = `
@@ -618,7 +620,7 @@ function addDonorToWall(donor) {
     <div class="wall-info">
       <div class="wall-name">${donor.name}</div>
       <div class="wall-amount">$${donor.amount}${freqLabel}</div>
-      <div class="wall-location">${donor.location} · Just now</div>
+      <div class="wall-location">${locationStr}${time}</div>
     </div>
   `;
   grid.prepend(card);
@@ -665,6 +667,46 @@ function hideToast(toast) {
 const syncState = buildSyncState();
 liveRaised = syncState.raised;
 scheduleSyncEvent(syncState);
+
+// ── REAL-TIME DONATIONS (Supabase) ──
+const SUPABASE_URL = 'https://rrntykdeodgcxwacchlh.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJybnR5a2Rlb2RnY3h3YWNjaGxoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUxODYzNDIsImV4cCI6MjA5MDc2MjM0Mn0.w0Psfg_k7xmeoWBF0F4UTWpvOcZWs3dWhStqCeaWq58';
+
+function timeAgoLabel(isoStr) {
+  const diff = Math.floor((Date.now() - new Date(isoStr).getTime()) / 60000);
+  if (diff < 1) return 'Just now';
+  if (diff < 60) return `${diff}m ago`;
+  return `${Math.floor(diff / 60)}h ago`;
+}
+
+if (window.supabase) {
+  const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  // Load recent real donations into the wall on page load
+  db.from('donations')
+    .select('*')
+    .order('created_at', { ascending: false })
+    .limit(20)
+    .then(({ data }) => {
+      if (!data || data.length === 0) return;
+      [...data].reverse().forEach(d => {
+        addDonorToWall(
+          { name: d.name, amount: d.amount, freq: d.frequency, location: '' },
+          timeAgoLabel(d.created_at)
+        );
+      });
+    });
+
+  // Subscribe to new donations in real-time
+  db.channel('realtime-donations')
+    .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'donations' }, (payload) => {
+      const d = payload.new;
+      const donor = { name: d.name, amount: d.amount, freq: d.frequency, location: '' };
+      createToast(donor, 0);
+      addDonorToWall(donor, 'Just now');
+    })
+    .subscribe();
+}
 
 // ── INIT ──
 updateUI();

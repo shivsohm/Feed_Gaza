@@ -38,7 +38,8 @@ exports.handler = async (event) => {
         },
         quantity: 1,
       }],
-success_url: `${process.env.URL}/success.html?amount=${amount}&freq=${frequency}&type=${type}`,
+      metadata: { type, frequency },
+      success_url: `${process.env.URL}/success.html?amount=${amount}&freq=${frequency}&type=${type}`,
       cancel_url: `${process.env.URL}/#donate`,
     };
 
