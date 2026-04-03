@@ -1,15 +1,13 @@
-exports.handler = async (event) => {
-  if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, body: 'Method Not Allowed' };
-  }
+import Stripe from 'stripe';
 
+export async function onRequestPost(context) {
   try {
-    const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-    const { amount, frequency, type } = JSON.parse(event.body);
+    const stripe = new Stripe(context.env.STRIPE_SECRET_KEY);
+    const { amount, frequency, type } = await context.request.json();
     const amountInCents = Math.round(parseFloat(amount) * 100);
 
     if (!amountInCents || amountInCents < 100) {
-      return { statusCode: 400, body: JSON.stringify({ error: 'Minimum donation is $1' }) };
+      return new Response(JSON.stringify({ error: 'Minimum donation is $1' }), { status: 400, headers: { 'Content-Type': 'application/json' } });
     }
 
     const donationLabel = {
@@ -20,6 +18,7 @@ exports.handler = async (event) => {
     }[type] || 'Donation';
 
     const isMonthly = frequency === 'monthly';
+    const origin = new URL(context.request.url).origin;
 
     const sessionConfig = {
       payment_method_types: ['card'],
@@ -30,8 +29,8 @@ exports.handler = async (event) => {
           product_data: {
             name: `FeedGaza — ${donationLabel}`,
             description: isMonthly
-              ? `Monthly donation to feed families in Gaza`
-              : `One-time donation to feed families in Gaza`,
+              ? 'Monthly donation to feed families in Gaza'
+              : 'One-time donation to feed families in Gaza',
           },
           unit_amount: amountInCents,
           ...(isMonthly ? { recurring: { interval: 'month' } } : {}),
@@ -39,22 +38,19 @@ exports.handler = async (event) => {
         quantity: 1,
       }],
       metadata: { type, frequency },
-      success_url: `${process.env.URL}/success.html?amount=${amount}&freq=${frequency}&type=${type}`,
-      cancel_url: `${process.env.URL}/#donate`,
+      success_url: `${origin}/success.html?amount=${amount}&freq=${frequency}&type=${type}`,
+      cancel_url: `${origin}/#donate`,
     };
 
     const session = await stripe.checkout.sessions.create(sessionConfig);
 
-    return {
-      statusCode: 200,
+    return new Response(JSON.stringify({ url: session.url }), {
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ url: session.url }),
-    };
+    });
   } catch (err) {
-    console.error('Stripe error:', err.message);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: err.message }),
-    };
+    return new Response(JSON.stringify({ error: err.message }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
-};
+}
