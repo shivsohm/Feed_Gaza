@@ -187,7 +187,6 @@
       const input = document.getElementById('donorName');
       const name = input.value.trim() || 'Anonymous';
       const key = `donated_${window.location.search}`;
-      if (sessionStorage.getItem(key)) return;
       sessionStorage.setItem(key, '1');
 
       if (db) {
