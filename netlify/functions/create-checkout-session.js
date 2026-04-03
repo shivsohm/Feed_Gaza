@@ -51,6 +51,7 @@ exports.handler = async (event) => {
       body: JSON.stringify({ url: session.url }),
     };
   } catch (err) {
+    console.error('Stripe error:', err.message);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: err.message }),
