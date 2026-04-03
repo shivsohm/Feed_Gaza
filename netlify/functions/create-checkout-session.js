@@ -4,6 +4,7 @@ exports.handler = async (event) => {
   }
 
   try {
+    console.log('Key present:', !!process.env.STRIPE_SECRET_KEY);
     const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
     const { amount, frequency, type } = JSON.parse(event.body);
     const amountInCents = Math.round(parseFloat(amount) * 100);
