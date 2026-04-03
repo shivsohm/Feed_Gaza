@@ -148,10 +148,33 @@ document.querySelectorAll('.type-btn').forEach(btn => {
 });
 
 // ── DONATE BUTTON ──
-donateBtn.addEventListener('click', () => {
-  // In production: redirect to your payment processor
-  // e.g. window.location.href = `https://buy.stripe.com/your-link?amount=${selectedAmount * 100}`;
-  openModal();
+donateBtn.addEventListener('click', async () => {
+  donateBtn.textContent = 'Processing...';
+  donateBtn.disabled = true;
+
+  try {
+    const res = await fetch('/.netlify/functions/create-checkout-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        amount: selectedAmount,
+        frequency: selectedFreq,
+        type: selectedType,
+      }),
+    });
+
+    const data = await res.json();
+
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      throw new Error(data.error || 'Something went wrong');
+    }
+  } catch (err) {
+    alert('Payment could not be started. Please try again.');
+    donateBtn.disabled = false;
+    updateUI();
+  }
 });
 
 function openModal() {

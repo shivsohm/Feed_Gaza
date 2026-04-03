@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JazakAllahu Khayran — FeedGaza</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+    }
+    .card {
+      max-width: 520px;
+      width: 100%;
+      background: linear-gradient(150deg, rgba(26,122,74,0.12), #0d1117);
+      border: 1px solid rgba(42,173,106,0.3);
+      border-radius: 24px;
+      padding: 56px 40px;
+      box-shadow: 0 0 60px rgba(42,173,106,0.1), 0 24px 64px rgba(0,0,0,0.4);
+    }
+    .checkmark {
+      width: 72px;
+      height: 72px;
+      background: rgba(42,173,106,0.15);
+      border: 2px solid rgba(42,173,106,0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+    .checkmark svg { color: #2aad6a; }
+    .arabic {
+      font-size: 22px;
+      color: #f0b132;
+      margin-bottom: 8px;
+      direction: rtl;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 12px;
+    }
+    .amount {
+      font-size: 36px;
+      font-weight: 900;
+      color: #2aad6a;
+      margin: 20px 0;
+    }
+    p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .hadith {
+      font-style: italic;
+      color: rgba(255,255,255,0.55);
+      font-size: 14px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 20px;
+      margin-top: 8px;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 14px 32px;
+      background: #1a7a4a;
+      color: white;
+      font-weight: 700;
+      font-size: 15px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn:hover { background: #2aad6a; }
+    .share {
+      margin-top: 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+    }
+    .share a {
+      color: #2aad6a;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="checkmark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="32" height="32">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </div>
+    <div class="arabic">جَزَاكَ اللَّهُ خَيْرًا</div>
+    <h1>JazakAllahu Khayran</h1>
+    <div class="amount" id="donationAmount"></div>
+    <p>Your donation has been received. May Allah accept it from you, multiply your reward, and count it as a sadaqah that reaches the most vulnerable on Earth.</p>
+    <p class="hadith">"Charity does not decrease wealth. No one forgives another except that Allah increases his honour." — Prophet Muhammad ﷺ (Sahih Muslim)</p>
+    <a href="/" class="btn">Return to FeedGaza</a>
+    <div class="share">
+      Help spread the word —
+      <a id="whatsappShare" href="#" target="_blank">Share on WhatsApp</a>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const amount = params.get('amount');
+    const freq = params.get('freq');
+    const type = params.get('type') || 'sadaqah';
+
+    const typeLabels = {
+      sadaqah: 'Sadaqah',
+      zakat: 'Zakat',
+      fidya: 'Fidya / Kaffarah',
+      general: 'Donation'
+    };
+
+    if (amount) {
+      const freqLabel = freq === 'monthly' ? '/month' : ' one-time';
+      document.getElementById('donationAmount').textContent = `$${amount}${freqLabel}`;
+    }
+
+    const shareText = `I just donated to FeedGaza to feed starving children in Gaza. Join me — feedgazafund.org`;
+    document.getElementById('whatsappShare').href = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+  </script>
+</body>
+</html>
