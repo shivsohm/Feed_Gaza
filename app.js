@@ -568,7 +568,7 @@ function buildSyncState() {
   let raised = 0;
   const now = Date.now();
   while (true) {
-    const interval = 10000 + rng() * 22000; // 10–32s gaps
+    const interval = 25000 + rng() * 35000; // 25–60s gaps
     t += interval;
     const donor = donors[Math.floor(rng() * donors.length)];
     if (t > now) return { nextTime: t, nextDonor: donor, raised, rng };
@@ -578,21 +578,21 @@ function buildSyncState() {
 }
 
 function scheduleSyncEvent({ nextTime, nextDonor, rng }) {
+  const delay = nextTime - Date.now();
+  const nextInterval = 25000 + rng() * 35000;
+  const nextDonor2 = donors[Math.floor(rng() * donors.length)];
+
+  // If overdue by more than 10s (tab was hidden/away), skip silently
+  if (delay < -10000) {
+    scheduleSyncEvent({ nextTime: Date.now() + nextInterval, nextDonor: nextDonor2, rng });
+    return;
+  }
+
   setTimeout(() => {
     createToast(nextDonor, 0);
     addToProgress(nextDonor.amount);
-
-    // Bonus toast on ~25% of events — random per device, just visual flair
-    if (Math.random() < 0.25) {
-      const bonus = donors[Math.floor(Math.random() * donors.length)];
-      setTimeout(() => createToast(bonus, 88), 1000 + Math.random() * 1000);
-    }
-
-    // Advance deterministic sequence for next event
-    const nextInterval = 10000 + rng() * 22000;
-    const nextDonor2 = donors[Math.floor(rng() * donors.length)];
     scheduleSyncEvent({ nextTime: nextTime + nextInterval, nextDonor: nextDonor2, rng });
-  }, Math.max(nextTime - Date.now(), 0));
+  }, Math.max(delay, 0));
 }
 
 function getInitials(name) {
