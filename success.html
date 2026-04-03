@@ -116,18 +116,12 @@
     </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     const params = new URLSearchParams(window.location.search);
     const amount = params.get('amount');
     const freq = params.get('freq');
     const type = params.get('type') || 'sadaqah';
-
-    const typeLabels = {
-      sadaqah: 'Sadaqah',
-      zakat: 'Zakat',
-      fidya: 'Fidya / Kaffarah',
-      general: 'Donation'
-    };
 
     if (amount) {
       const freqLabel = freq === 'monthly' ? '/month' : ' one-time';
@@ -136,6 +130,25 @@
 
     const shareText = `I just donated to FeedGaza to feed starving children in Gaza. Join me — feedgazafund.org`;
     document.getElementById('whatsappShare').href = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+
+    // Write donation to Supabase so it appears on the live wall for everyone
+    const SUPABASE_URL = 'https://rrntykdeodgcxwacchlh.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJybnR5a2Rlb2RnY3h3YWNjaGxoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUxODYzNDIsImV4cCI6MjA5MDc2MjM0Mn0.w0Psfg_k7xmeoWBF0F4UTWpvOcZWs3dWhStqCeaWq58';
+
+    if (amount && window.supabase) {
+      // Avoid duplicate inserts if user refreshes the page
+      const key = `donated_${window.location.search}`;
+      if (!sessionStorage.getItem(key)) {
+        sessionStorage.setItem(key, '1');
+        const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        db.from('donations').insert({
+          name: 'Anonymous',
+          amount: parseFloat(amount),
+          type: type,
+          frequency: freq || 'once'
+        });
+      }
+    }
   </script>
 </body>
 </html>
