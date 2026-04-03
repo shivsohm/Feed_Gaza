@@ -1,11 +1,10 @@
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' };
   }
 
   try {
+    const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
     const { amount, frequency, type } = JSON.parse(event.body);
     const amountInCents = Math.round(parseFloat(amount) * 100);
 
