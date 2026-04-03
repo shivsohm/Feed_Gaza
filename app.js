@@ -568,7 +568,7 @@ function buildSyncState() {
   let raised = 0;
   const now = Date.now();
   while (true) {
-    const interval = 5000 + rng() * 11000; // 5–16s gaps
+    const interval = 10000 + rng() * 22000; // 10–32s gaps
     t += interval;
     const donor = donors[Math.floor(rng() * donors.length)];
     if (t > now) return { nextTime: t, nextDonor: donor, raised, rng };
@@ -589,7 +589,7 @@ function scheduleSyncEvent({ nextTime, nextDonor, rng }) {
     }
 
     // Advance deterministic sequence for next event
-    const nextInterval = 5000 + rng() * 11000;
+    const nextInterval = 10000 + rng() * 22000;
     const nextDonor2 = donors[Math.floor(rng() * donors.length)];
     scheduleSyncEvent({ nextTime: nextTime + nextInterval, nextDonor: nextDonor2, rng });
   }, Math.max(nextTime - Date.now(), 0));
