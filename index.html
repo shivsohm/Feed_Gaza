@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feed Gaza — Feed the Hungry, Earn Your Reward</title>
+  <meta name="description" content="Feed starving children and families in Gaza. Every dollar feeds a family. Fulfill your Islamic duty of Sadaqah and Zakat today." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <svg class="logo-crescent" viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <span class="logo-text">Feed<strong>Gaza</strong></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#crisis">The Crisis</a></li>
+        <li><a href="#why-give">Why Give</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#quran">Islamic Duty</a></li>
+      </ul>
+      <a href="#donate" class="btn btn-nav">Donate Now</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#crisis">The Crisis</a>
+      <a href="#why-give">Why Give</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#quran">Islamic Duty</a>
+      <a href="#donate" class="btn btn-primary" style="margin-top:8px;">Donate Now</a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content container">
+      <div class="arabic-top">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+      <h1>
+        Children Are<br />
+        <span class="highlight">Going to Bed Hungry</span><br />
+        in Gaza Tonight.
+      </h1>
+      <p class="hero-sub">
+        Families in Gaza are facing catastrophic food insecurity. Mothers watch their children starve.
+        You have the power to change that — right now, from wherever you are.
+      </p>
+      <div class="hero-ayah">
+        <span class="ayah-arabic">وَأَطْعِمُوا الْبَائِسَ الْفَقِيرَ</span>
+        <span class="ayah-trans">"And feed the poor and the one in misery." — Quran 22:28</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#donate" class="btn btn-primary btn-large pulse">Feed a Family Today</a>
+        <a href="#reality" class="btn btn-ghost btn-large">See the Reality</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg>
+          100% Zakat Eligible
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg>
+          Sadaqah Jariyah
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg>
+          Direct Aid
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ── URGENCY TICKER ── -->
+  <div class="ticker">
+    <div class="ticker-inner">
+      <span>URGENT — Gaza faces catastrophic famine conditions &nbsp;•&nbsp;</span>
+      <span>Every meal matters — every dollar reaches the hungry &nbsp;•&nbsp;</span>
+      <span>Your Sadaqah can save a life today &nbsp;•&nbsp;</span>
+      <span>Zakat and Sadaqah both accepted &nbsp;•&nbsp;</span>
+      <span>"The best charity is that given when you are in need yourself." — Prophet Muhammad ﷺ &nbsp;•&nbsp;</span>
+      <span>URGENT — Gaza faces catastrophic famine conditions &nbsp;•&nbsp;</span>
+      <span>Every meal matters — every dollar reaches the hungry &nbsp;•&nbsp;</span>
+      <span>Your Sadaqah can save a life today &nbsp;•&nbsp;</span>
+      <span>Zakat and Sadaqah both accepted &nbsp;•&nbsp;</span>
+      <span>"The best charity is that given when you are in need yourself." — Prophet Muhammad ﷺ &nbsp;•&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ── MEALS COUNTER STRIP ── -->
+  <div class="meals-strip">
+    <div class="meals-strip-inner container">
+      <div class="meals-item meals-item--wide">
+        <span class="meals-label">Famine declared in Gaza — time elapsed</span>
+        <div class="famine-clock">
+          <div class="clock-unit"><span class="clock-num" id="clockDays">0</span><span class="clock-label">days</span></div>
+          <span class="clock-sep">:</span>
+          <div class="clock-unit"><span class="clock-num" id="clockHours">00</span><span class="clock-label">hours</span></div>
+          <span class="clock-sep">:</span>
+          <div class="clock-unit"><span class="clock-num" id="clockMins">00</span><span class="clock-label">mins</span></div>
+          <span class="clock-sep">:</span>
+          <div class="clock-unit"><span class="clock-num" id="clockSecs">00</span><span class="clock-label">secs</span></div>
+        </div>
+        <span class="meals-source">Famine confirmed by UN Famine Review Committee — March 18, 2024</span>
+      </div>
+      <div class="meals-divider"></div>
+      <div class="meals-item">
+        <span class="meals-label">Children with acute malnutrition</span>
+        <span class="meals-count meals-count--static">50,000+</span>
+      </div>
+      <div class="meals-divider"></div>
+      <div class="meals-item">
+        <span class="meals-label">Cost to feed one child for a month</span>
+        <span class="meals-count meals-count--gold">$10</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── REALITY SECTION — POWERFUL IMAGES ── -->
+  <section class="reality-section" id="reality">
+    <div class="reality-header container">
+      <span class="section-label">The Truth You Need to See</span>
+      <h2>This Is What Famine Looks Like</h2>
+      <p class="reality-intro">
+        While you read this, a child in Gaza is crying from hunger. Not metaphorically.
+        Right now. These are real people — our Muslim brothers and sisters — living through the unimaginable.
+      </p>
+    </div>
+
+    <div class="reality-grid">
+      <div class="reality-img reality-img--large">
+        <img src="s_7AB01B5BD3BEF9C99FFF946B1EDA5EC725FBB6CD6AD8DA26A2BDD97EC24AC571_1753737693723_03.jpg" alt="Children in Gaza crying and reaching desperately for food at a distribution point" loading="lazy" />
+        <div class="reality-caption">
+          <p class="caption-stat">Children screaming for a single meal</p>
+          <p class="caption-sub">This is what famine looks like. Children crushed against barriers, crying, fighting for whatever scraps of food exist. This is happening right now.</p>
+        </div>
+      </div>
+      <div class="reality-img reality-img--sm">
+        <img src="AP25123433268989.jpg" alt="Crowds of children holding pots waiting desperately for food aid in Gaza" loading="lazy" />
+        <div class="reality-caption">
+          <p class="caption-stat">Hundreds fight for one pot of soup</p>
+          <p class="caption-sub">When a food distribution point opens, hundreds descend within minutes. There is never enough.</p>
+        </div>
+      </div>
+      <div class="reality-img reality-img--sm">
+        <img src="c75836217119e8b68619fb14d4262061.webp" alt="Severely malnourished infant in Gaza" loading="lazy" />
+        <div class="reality-caption">
+          <p class="caption-stat">Infants starving to death</p>
+          <p class="caption-sub">This baby's body is consuming itself. Without food reaching Gaza, children like this will not survive.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reality-quote container">
+      <blockquote>
+        "I have not eaten in three days. My children cry at night. I have nothing left to give them."
+      </blockquote>
+      <cite>— A mother in Gaza, documented by international humanitarian workers</cite>
+    </div>
+
+    <div class="reality-cta container">
+      <p>You are sitting somewhere warm and safe. You have food in your home. They have nothing.</p>
+      <a href="#donate" class="btn btn-primary btn-large">I Will Not Look Away — Donate Now</a>
+    </div>
+  </section>
+
+  <!-- ── MEDIA LOGOS ── -->
+  <div class="media-bar">
+    <div class="container">
+      <span class="media-bar-label">Crisis documented by</span>
+      <div class="media-logos">
+        <span class="media-logo">Al Jazeera</span>
+        <span class="media-logo">BBC</span>
+        <span class="media-logo">The Guardian</span>
+        <span class="media-logo">Reuters</span>
+        <span class="media-logo">CNN</span>
+        <span class="media-logo">UNRWA</span>
+        <span class="media-logo">UN OCHA</span>
+        <span class="media-logo">World Food Programme</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── IMPACT NUMBERS ── -->
+  <section class="impact-strip" id="crisis">
+    <div class="container">
+      <div class="impact-grid">
+        <div class="impact-card">
+          <div class="impact-icon-svg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="36" height="36"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/><circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.15"/></svg>
+          </div>
+          <div class="impact-label">Families facing food insecurity</div>
+          <div class="impact-desc">The vast majority of Gaza's population lacks reliable access to food</div>
+        </div>
+        <div class="impact-card">
+          <div class="impact-icon-svg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="36" height="36"><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+          </div>
+          <div class="impact-label">Children malnourished</div>
+          <div class="impact-desc">Acute malnutrition among children under 5 has reached emergency levels, with many at risk of death</div>
+        </div>
+        <div class="impact-card">
+          <div class="impact-icon-svg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="36" height="36"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/><line x1="12" y1="9" x2="12" y2="15"/><line x1="9" y1="12" x2="15" y2="12"/></svg>
+          </div>
+          <div class="impact-label">Healthcare system collapsed</div>
+          <div class="impact-desc">With hospitals destroyed, malnutrition goes untreated and becomes fatal within weeks</div>
+        </div>
+        <div class="impact-card">
+          <div class="impact-icon-svg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="36" height="36"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+          </div>
+          <div class="impact-label">Clean water inaccessible</div>
+          <div class="impact-desc">Without clean water, food-related illness compounds the hunger crisis and kills children already weakened</div>
+        </div>
+      </div>
+      <p class="impact-source">Sources: UN OCHA, World Food Programme, UNRWA humanitarian reports</p>
+    </div>
+  </section>
+
+  <!-- ── VIDEO SECTION ── -->
+  <section class="video-section">
+    <div class="container">
+      <span class="section-label">See For Yourself</span>
+      <h2>Watch What Is Happening in Gaza</h2>
+      <p class="section-sub">Words and images only go so far. Watch the footage that the world cannot ignore.</p>
+      <div class="video-wrapper">
+        <video controls playsinline poster="">
+          <source src="videoplayback" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-cta">
+        <a href="#donate" class="btn btn-primary btn-large">I've Seen Enough — I Want to Help</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── THE SUFFERING IN DETAIL ── -->
+  <section class="suffering-section">
+    <div class="container">
+      <div class="suffering-grid">
+        <div class="suffering-text">
+          <span class="section-label">A Famine of Our Time</span>
+          <h2>We Cannot Look Away</h2>
+          <p>
+            Gaza is experiencing one of the most severe humanitarian crises in recorded modern history.
+            Prolonged conflict has devastated every piece of infrastructure — roads, hospitals, bakeries,
+            water systems — and left two million people trapped with nothing to eat.
+          </p>
+          <p>
+            Mothers are feeding their children grass. Fathers are drinking contaminated water because it is
+            all that exists. Infants are dying of starvation-related causes in hospitals that have no medicine,
+            no electricity, and no food. International aid organizations have formally declared famine conditions.
+          </p>
+          <p>
+            The children dying in Gaza today are dying the slowest, most painful death imaginable.
+            Starvation is not quick. It is weeks of agony — a child's body consuming itself, organ by organ,
+            until there is nothing left.
+          </p>
+          <p class="suffering-call">
+            As Muslims, we are bound by our faith to respond. The Prophet ﷺ told us we are one body.
+            Right now, that body is screaming in pain. <strong>What will you do?</strong>
+          </p>
+          <a href="#donate" class="btn btn-primary">Feed a Starving Family Now</a>
+        </div>
+        <div class="suffering-image-col">
+          <div class="suffering-photo">
+            <img src="250722-gaza-3-rs-3992a8.jpg" alt="Malnourished child being held by his father in Gaza, eating a small piece of bread" loading="lazy" />
+            <div class="photo-overlay"></div>
+          </div>
+          <div class="cost-badges">
+            <div class="cost-badge">
+              <span class="cost-num">$2</span>
+              <span class="cost-label">= 1 meal</span>
+            </div>
+            <div class="cost-badge cost-badge--featured">
+              <span class="cost-num">$50/mo</span>
+              <span class="cost-label">= 1 family fed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HUMAN STORIES ── -->
+  <section class="stories-section">
+    <div class="container">
+      <span class="section-label">Documented Cases</span>
+      <h2>These Are Not Statistics. These Are People.</h2>
+      <p class="section-sub">The following cases are drawn from documented humanitarian field reports by UNRWA, UNICEF, and the World Food Programme.</p>
+      <div class="stories-grid">
+
+        <div class="story-card" data-accent="green">
+          <div class="story-geo-pattern"></div>
+          <div class="story-watermark">٠١</div>
+          <div class="story-card-inner">
+            <div class="story-badge story-badge--green">4 years old</div>
+            <div class="story-ornament"><span>✦</span></div>
+            <p class="story-detail">
+              A boy admitted to hospital weighing <strong>9.2 kg</strong>. The healthy weight for a child his age is 16 kg. His body had begun consuming its own muscle tissue. Doctors described his condition as severe acute malnutrition with medical complications.
+            </p>
+            <div class="story-footer">
+              <span class="story-source">UNRWA field report — northern Gaza</span>
+              <span class="story-cost story-cost--green">$10/month could have prevented this</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="story-card story-card--raised" data-accent="gold">
+          <div class="story-geo-pattern"></div>
+          <div class="story-watermark">٠٢</div>
+          <div class="story-card-inner">
+            <div class="story-badge story-badge--gold">8 months old</div>
+            <div class="story-ornament"><span>✦</span></div>
+            <p class="story-detail">
+              An infant girl brought to a field clinic by her mother, who had not eaten in four days to preserve what little food remained for her children. The infant's weight had dropped to <strong>3.8 kg</strong> — below her birth weight. She was placed on emergency nutrition intervention.
+            </p>
+            <div class="story-footer">
+              <span class="story-source">WFP emergency nutrition assessment — Gaza</span>
+              <span class="story-cost story-cost--gold">$2 = one therapeutic meal for this child</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="story-card" data-accent="green">
+          <div class="story-geo-pattern"></div>
+          <div class="story-watermark">٠٣</div>
+          <div class="story-card-inner">
+            <div class="story-badge story-badge--green">A mother of five</div>
+            <div class="story-ornament"><span>✦</span></div>
+            <div class="story-quote-glyph">"</div>
+            <p class="story-detail story-detail--italic">
+              She had boiled grass and mixed it with water to give her children something to eat. She told me she hadn't slept in three nights because the sound of her children crying from hunger kept her awake. She asked me only one thing — can you help them?
+            </p>
+            <p class="story-attribution">— Field worker testimony, humanitarian agency, Gaza City</p>
+            <div class="story-footer">
+              <span class="story-source">Humanitarian field report — Gaza City</span>
+              <span class="story-cost story-cost--green">$50/month feeds her entire family</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="stories-cta">
+        <a href="#donate" class="btn btn-primary btn-large">Feed a Family Like Hers — Donate Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ISLAMIC DUTY ── -->
+  <section class="quran-section" id="quran">
+    <div class="container">
+      <span class="section-label light">The Islamic Obligation</span>
+      <h2 class="light-h2">Allah Commands Us to Feed the Hungry</h2>
+      <p class="quran-intro">
+        Feeding the poor isn't merely encouraged in Islam — it is a pillar of our faith, repeated throughout
+        the Quran and the Sunnah of our beloved Prophet ﷺ.
+      </p>
+
+      <div class="ayah-grid">
+        <div class="ayah-card featured">
+          <div class="ayah-arabic-large">
+            وَمَا أَنفَقْتُم مِّن شَيْءٍ فَهُوَ يُخْلِفُهُ ۖ وَهُوَ خَيْرُ الرَّازِقِينَ
+          </div>
+          <div class="ayah-translation">
+            "And whatever you spend in His cause, He will replace it. And He is the best of providers."
+          </div>
+          <div class="ayah-ref">— Quran 34:39</div>
+        </div>
+
+        <div class="ayah-card">
+          <div class="ayah-arabic-large">
+            وَيُطْعِمُونَ الطَّعَامَ عَلَىٰ حُبِّهِ مِسْكِينًا وَيَتِيمًا وَأَسِيرًا
+          </div>
+          <div class="ayah-translation">
+            "And they give food, in spite of their love for it, to the poor, the orphan, and the captive."
+          </div>
+          <div class="ayah-ref">— Quran 76:8</div>
+        </div>
+
+        <div class="ayah-card">
+          <div class="ayah-arabic-large">
+            مَّثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ
+          </div>
+          <div class="ayah-translation">
+            "The example of those who spend their wealth in the way of Allah is like a seed which grows seven spikes; in each spike is a hundred grains..."
+          </div>
+          <div class="ayah-ref">— Quran 2:261</div>
+        </div>
+
+        <div class="ayah-card">
+          <div class="ayah-arabic-large">
+            إِنَّمَا الصَّدَقَاتُ لِلْفُقَرَاءِ وَالْمَسَاكِينِ
+          </div>
+          <div class="ayah-translation">
+            "Zakah expenditures are only for the poor and for the needy..."
+          </div>
+          <div class="ayah-ref">— Quran 9:60</div>
+        </div>
+      </div>
+
+      <div class="hadith-strip">
+        <div class="hadith-card">
+          <div class="hadith-card-body">
+            <div class="hadith-glyph">"</div>
+            <blockquote>He is not a believer whose stomach is filled while his neighbor goes to sleep hungry.</blockquote>
+            <cite>Prophet Muhammad ﷺ<span class="hadith-source">Al-Adab Al-Mufrad</span></cite>
+          </div>
+        </div>
+        <div class="hadith-card hadith-card--center">
+          <div class="hadith-card-body">
+            <div class="hadith-glyph">"</div>
+            <blockquote>The Muslim Ummah is like one body — when one part is in pain, the whole body feels it.</blockquote>
+            <cite>Prophet Muhammad ﷺ<span class="hadith-source">Sahih Muslim</span></cite>
+          </div>
+        </div>
+        <div class="hadith-card">
+          <div class="hadith-card-body">
+            <div class="hadith-glyph">"</div>
+            <blockquote>Charity does not decrease wealth. No one forgives another except that Allah increases his honour.</blockquote>
+            <cite>Prophet Muhammad ﷺ<span class="hadith-source">Sahih Muslim</span></cite>
+          </div>
+        </div>
+      </div>
+
+      <div class="zakat-box">
+        <div class="zakat-icon-svg">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="44" height="44" style="color:var(--gold-light)"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </div>
+        <div class="zakat-text">
+          <h3>Your Zakat &amp; Sadaqah Are Both Welcome</h3>
+          <p>
+            The people of Gaza are among those whom Zakat was ordained to help. Your Zakat is an obligation —
+            your Sadaqah is an investment in Jannah. Both are accepted and both will reach those who need it most.
+            Make your intention, give with sincerity, and trust in Allah's promise of multiplied reward.
+          </p>
+        </div>
+        <a href="#donate" class="btn btn-white">Give Zakat / Sadaqah</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ZAKAT CALCULATOR ── -->
+  <section class="zakat-calc-section" id="zakat-calc">
+    <div class="container">
+      <div class="zakat-calc-wrapper">
+        <div class="zakat-calc-left">
+          <span class="section-label">Zakat Calculator</span>
+          <h2>How Much Zakat Do You Owe?</h2>
+          <p>
+            Zakat is one of the five pillars of Islam — 2.5% of your total zakatable wealth held above the nisab threshold for one lunar year. If you have been putting off calculating it, do it now. The people of Gaza are among those it was ordained to help.
+          </p>
+          <div class="nisab-notice">
+            <div class="nisab-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" style="color:var(--gold-light)"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </div>
+            <div>
+              <strong>Current Nisab (Silver)</strong>
+              <p>$565 USD — the minimum wealth threshold for Zakat to be obligatory. Verify current rates with your local scholar.</p>
+            </div>
+          </div>
+          <div class="zakat-ayah">
+            <span class="ayah-arabic" style="font-size:17px;">وَأَقِيمُوا الصَّلَاةَ وَآتُوا الزَّكَاةَ</span>
+            <span class="ayah-trans">"Establish prayer and give Zakat." — Quran 2:43</span>
+          </div>
+        </div>
+
+        <div class="zakat-calc-right">
+          <div class="calc-card">
+            <h3>Calculate Your Zakat</h3>
+            <p class="calc-sub">Enter your assets below. All values in USD.</p>
+
+            <div class="calc-fields">
+              <div class="calc-field">
+                <label>Cash &amp; bank savings</label>
+                <div class="calc-input"><span>$</span><input type="number" class="zakat-input" id="zCash" placeholder="0" min="0" /></div>
+              </div>
+              <div class="calc-field">
+                <label>Gold &amp; silver value</label>
+                <div class="calc-input"><span>$</span><input type="number" class="zakat-input" id="zGold" placeholder="0" min="0" /></div>
+              </div>
+              <div class="calc-field">
+                <label>Business inventory / investments</label>
+                <div class="calc-input"><span>$</span><input type="number" class="zakat-input" id="zBusiness" placeholder="0" min="0" /></div>
+              </div>
+              <div class="calc-field">
+                <label>Money owed to you (receivables)</label>
+                <div class="calc-input"><span>$</span><input type="number" class="zakat-input" id="zReceivable" placeholder="0" min="0" /></div>
+              </div>
+              <div class="calc-field calc-field--deduct">
+                <label>Debts you owe (deducted)</label>
+                <div class="calc-input"><span>$</span><input type="number" class="zakat-input" id="zDebts" placeholder="0" min="0" /></div>
+              </div>
+            </div>
+
+            <div class="calc-result" id="calcResult">
+              <div class="result-row">
+                <span>Total zakatable wealth:</span>
+                <strong id="totalWealth">$0</strong>
+              </div>
+              <div class="result-row" id="nisabRow">
+                <span>Nisab threshold:</span>
+                <strong>$565</strong>
+              </div>
+              <div class="result-zakat" id="zakatDue">
+                <div class="zakat-due-label">Your Zakat due</div>
+                <div class="zakat-due-amount" id="zakatAmount">$0</div>
+                <div class="zakat-due-sub" id="zakatSub">Enter your assets above to calculate</div>
+              </div>
+            </div>
+
+            <button class="btn btn-donate" id="zakatDonateBtn" style="margin-top:4px;" disabled>
+              Donate My Zakat to Gaza
+            </button>
+            <p style="font-size:12px;color:#888;margin-top:10px;text-align:center;">This pre-fills the donation amount for you</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOW IT WORKS ── -->
+  <section class="how-section" id="how-it-works">
+    <div class="container">
+      <span class="section-label">Transparency &amp; Trust</span>
+      <h2>Where Your Money Goes</h2>
+      <p class="section-sub">We believe in full transparency. Here is how your donation reaches a family in Gaza.</p>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <div class="step-icon-svg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="30" height="30"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </div>
+          <h3>You Donate</h3>
+          <p>Give securely online. Choose your amount — every dollar counts, no matter how small.</p>
+        </div>
+        <div class="step-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <div class="step-icon-svg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="30" height="30"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>We Partner</h3>
+          <p>Funds are routed through verified local partners operating on the ground in Gaza.</p>
+        </div>
+        <div class="step-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <div class="step-icon-svg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="30" height="30"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <h3>Food Delivered</h3>
+          <p>Food packages — grains, lentils, oil, canned goods — are delivered directly to families.</p>
+        </div>
+        <div class="step-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+        <div class="step-card">
+          <div class="step-num">04</div>
+          <div class="step-icon-svg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="30" height="30"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <h3>You're Updated</h3>
+          <p>Receive reports on how your donation was used. Know your sadaqah reached its destination.</p>
+        </div>
+      </div>
+
+      <div class="what-your-gives">
+        <h3>What Your Donation Provides</h3>
+        <div class="gives-grid">
+          <div class="gives-item">
+            <div class="gives-amount">$10</div>
+            <div class="gives-desc">Feeds a child for a week</div>
+          </div>
+          <div class="gives-item highlighted">
+            <div class="gives-amount">$50</div>
+            <div class="gives-desc">Feeds a family for a month</div>
+          </div>
+          <div class="gives-item">
+            <div class="gives-amount">$100</div>
+            <div class="gives-desc">Food packages for 2 families</div>
+          </div>
+          <div class="gives-item">
+            <div class="gives-amount">$250</div>
+            <div class="gives-desc">Sustains 5 families through a month</div>
+          </div>
+          <div class="gives-item">
+            <div class="gives-amount">$500</div>
+            <div class="gives-desc">Feeds a community, earns ongoing Sadaqah Jariyah</div>
+          </div>
+          <div class="gives-item">
+            <div class="gives-amount">Custom</div>
+            <div class="gives-desc">Any amount — even $1 — makes a real difference</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY GIVE ── -->
+  <section class="why-section" id="why-give">
+    <div class="container">
+      <span class="section-label">Why Feed Gaza</span>
+      <h2>Give With Confidence</h2>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon-svg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3>Secure &amp; Transparent</h3>
+          <p>Every dollar is tracked. We publish full spending reports so you always know where your money went.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon-svg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>Emergency Response</h3>
+          <p>We operate in active crisis zones. Your donation reaches families within days, not months.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon-svg">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" style="color:var(--green-light)"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </div>
+          <h3>Shariah Compliant</h3>
+          <p>All operations are Shariah-compliant. Your Zakat, Sadaqah, and Fidya are accepted and handled properly.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon-svg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3>100% Reaches Gaza</h3>
+          <p>Administrative costs are covered separately. Your donation goes entirely to feeding families.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon-svg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          </div>
+          <h3>Real-Time Updates</h3>
+          <p>Get updates on your donation's impact delivered to your inbox. See the families you're helping.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon-svg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm0-14a6 6 0 0 0-6 6 1 1 0 0 0 2 0 4 4 0 0 1 4-4 1 1 0 0 0 0-2z"/></svg>
+          </div>
+          <h3>Sadaqah Jariyah</h3>
+          <p>Your donation keeps giving — ongoing reward in your book of deeds, even after you are gone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <span class="section-label">Common Questions</span>
+      <h2>Before You Donate</h2>
+      <p class="section-sub">We know you have questions. Here are honest answers to the ones we hear most.</p>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Is my donation Zakat eligible?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a">
+            <p>Yes. The families in Gaza fall squarely under the categories of Fuqara (the poor) and Masakeen (the needy) as defined in Quran 9:60 — the primary recipients of Zakat. We are committed to ensuring Zakat funds are used only for direct food aid and not mixed with general operational costs. Make your intention before donating and select "Zakat" in the donation type field.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            What percentage goes to administration?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a">
+            <p>100% of your donation goes to food aid. Our operational and administrative costs are covered through separate funding. When you donate $50, $50 worth of food reaches a family in Gaza. No exceptions.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            How quickly does the food arrive after I donate?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a">
+            <p>We operate on an emergency response model. Funds are transferred to our partners within 48 hours of receiving your donation. Depending on access conditions, food typically reaches families within 3–7 days. In active crisis areas we maintain pre-positioned food stocks so distribution can begin within hours of a fund transfer.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Can I cancel my monthly donation?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a">
+            <p>Yes, you can cancel at any time with no questions asked. That said, we encourage you to consider what monthly giving means for a family that relies on it. When a regular food supply stops, it is not an inconvenience — it is a crisis for that family. If you are facing financial hardship yourself, please reach out and we will pause your giving rather than cancel it.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            What is Sadaqah Jariyah and does this qualify?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a">
+            <p>Sadaqah Jariyah is a continuous charity whose reward keeps flowing to you after you give — and even after you pass away. The Prophet ﷺ said: "When a person dies, all their deeds end except three: a continuing charity, beneficial knowledge, or a righteous child who prays for them." (Sahih Muslim). A monthly donation that consistently feeds a family qualifies as a form of ongoing Sadaqah Jariyah. Your reward does not stop when the month ends.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Can I donate on behalf of someone who has passed away?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a">
+            <p>Yes. Donating Sadaqah on behalf of a deceased loved one is a well-established practice in Islam. Make your niyyah (intention) before donating, specifying that the reward should go to them. The scholars are agreed that the reward reaches the deceased and they benefit from it in the next life. Select "Sadaqah" as your donation type and make your intention sincerely.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHO WE ARE ── -->
+  <section class="who-section">
+    <div class="container">
+      <div class="who-wrapper">
+        <div class="who-text">
+          <span class="section-label">Who We Are</span>
+          <h2>Muslims Who Could Not Look Away</h2>
+          <p>
+            FeedGaza was started by a group of ordinary Muslims — not politicians, not celebrities, not large institutions.
+            Just people sitting at home, watching the news, and feeling the unbearable weight of doing nothing.
+          </p>
+          <p>
+            We are your neighbours, your colleagues, your fellow worshippers at the masjid.
+            We saw what was happening in Gaza and we asked ourselves the same question the Prophet ﷺ
+            would ask of us: <em>"What did you do when you had the ability to help?"</em>
+          </p>
+          <p>
+            So we built this. Not because we are experts. Not because we have all the answers.
+            But because sitting quietly was no longer something we could do in good conscience.
+            We are accountable to Allah for every dollar donated to us — and we take that seriously.
+          </p>
+          <div class="who-values">
+            <div class="who-value">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polyline points="20 6 9 17 4 12"/></svg>
+              100% financial transparency
+            </div>
+            <div class="who-value">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polyline points="20 6 9 17 4 12"/></svg>
+              Shariah-compliant operations
+            </div>
+            <div class="who-value">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polyline points="20 6 9 17 4 12"/></svg>
+              Accountable to our donors and to Allah
+            </div>
+          </div>
+        </div>
+        <div class="who-quote-col">
+          <div class="who-quote">
+            <div class="who-quote-arabic">إِنَّمَا الْمُؤْمِنُونَ إِخْوَةٌ</div>
+            <blockquote>"The believers are but brothers."</blockquote>
+            <cite>— Quran 49:10</cite>
+          </div>
+          <div class="who-stat">
+            <div class="who-stat-num">100%</div>
+            <div class="who-stat-label">of your donation reaches Gaza</div>
+          </div>
+          <div class="who-stat">
+            <div class="who-stat-num">$0</div>
+            <div class="who-stat-label">taken for admin from your donation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SCHOLAR QUOTES ── -->
+  <section class="scholars-section">
+    <div class="container">
+      <span class="section-label">Scholars on Gaza</span>
+      <h2>The Ummah Has an Obligation</h2>
+      <div class="scholars-grid">
+        <div class="scholar-card">
+          <blockquote>
+            "Saving the life of a single human being is as if you have saved all of humanity.
+            The people of Gaza are human beings — our brothers and sisters in faith — and their lives are in our hands."
+          </blockquote>
+          <div class="scholar-attr">— Islamic scholars worldwide, echoing Quran 5:32</div>
+        </div>
+        <div class="scholar-card">
+          <blockquote>
+            "When you give for the sake of Allah, you do not lose anything. Allah is Al-Razzaq,
+            the Provider. He will replace what you give and multiply it in ways you cannot imagine."
+          </blockquote>
+          <div class="scholar-attr">— Principle of Tawakkul in Islamic scholarship</div>
+        </div>
+        <div class="scholar-card">
+          <blockquote>
+            "The orphan, the widow, the hungry child — they are all amanah (trust) in our hands.
+            On the Day of Judgement, we will be asked what we did when we had the ability to help."
+          </blockquote>
+          <div class="scholar-attr">— Islamic teaching on accountability (Quran 102:8)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DONATION SECTION ── -->
+  <section class="donate-section" id="donate">
+    <div class="container">
+
+      <!-- PROGRESS BAR -->
+      <div class="progress-bar-wrap">
+        <div class="progress-header">
+          <div class="progress-raised">
+            <span class="progress-amount" id="progressAmount">$0</span>
+            <span class="progress-label">raised</span>
+          </div>
+          <div class="progress-goal">
+            <span class="progress-label">Goal:</span>
+            <span class="progress-target">$100,000</span>
+          </div>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill" style="width:0%">
+            <span class="progress-pct" id="progressPct">0%</span>
+          </div>
+        </div>
+        <div class="progress-footer">
+          <span class="progress-note">Connect LaunchGood or Stripe to show live data</span>
+        </div>
+      </div>
+
+      <div class="donate-wrapper">
+        <div class="donate-left">
+          <span class="section-label light">Give Now</span>
+          <h2 class="light-h2">Make Your Intention &amp; Give</h2>
+          <p style="color:rgba(255,255,255,0.8); margin-bottom: 24px;">
+            Before you give, make your niyyah (intention). Is this Zakat, Sadaqah, or a general donation?
+            Allah sees your heart — and your reward is with Him.
+          </p>
+
+          <div class="niyyah-box">
+            <p class="niyyah-arabic">اللَّهُمَّ اجْعَلْ هَذَا صَدَقَةً خَالِصَةً لِوَجْهِكَ الْكَرِيم</p>
+            <p class="niyyah-trans">"O Allah, make this a sincere charity for Your Noble Face."</p>
+          </div>
+
+          <div class="donation-type-selector">
+            <h4>Select Donation Type:</h4>
+            <div class="type-btns">
+              <button class="type-btn active" data-type="sadaqah">Sadaqah</button>
+              <button class="type-btn" data-type="zakat">Zakat</button>
+              <button class="type-btn" data-type="fidya">Fidya / Kaffarah</button>
+              <button class="type-btn" data-type="general">General</button>
+            </div>
+          </div>
+
+          <!-- IMPACT PANEL — updated by JS -->
+          <div class="impact-panel" id="impactDescription">
+            <div class="impact-panel-bg"></div>
+            <div class="impact-panel-inner">
+              <div class="impact-panel-header">
+                <span class="impact-panel-ornament">✦</span>
+                <span class="impact-panel-label">Your Impact</span>
+                <span class="impact-panel-ornament">✦</span>
+              </div>
+              <div class="impact-panel-quote">"</div>
+              <p class="impact-panel-text" id="impactText">$50 every month feeds an entire family — grains, lentils, oil, and canned protein delivered to their door. This is the most impactful thing you can do for a family that has absolutely nothing.</p>
+              <div class="impact-panel-footer">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg>
+                <span>Sadaqah that reaches the most vulnerable on Earth</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="donate-right">
+          <div class="donation-card">
+            <h3>Feed Gaza Today</h3>
+            <p class="donation-sub">Choose your donation amount:</p>
+
+            <div class="frequency-toggle">
+              <button class="freq-btn" data-freq="once">Give Once</button>
+              <button class="freq-btn active" data-freq="monthly">Give Monthly</button>
+            </div>
+
+            <div class="amount-grid">
+              <button class="amount-btn" data-amount="10">$10</button>
+              <button class="amount-btn" data-amount="25">$25</button>
+              <button class="amount-btn active" data-amount="50">$50</button>
+              <button class="amount-btn" data-amount="100">$100</button>
+              <button class="amount-btn" data-amount="250">$250</button>
+              <button class="amount-btn" data-amount="500">$500</button>
+            </div>
+
+            <div class="custom-amount-wrap">
+              <label for="customAmount">Or enter a custom amount:</label>
+              <div class="custom-input">
+                <span class="dollar-sign">$</span>
+                <input type="number" id="customAmount" placeholder="Enter amount" min="1" />
+              </div>
+            </div>
+
+            <div class="donation-summary">
+              <div class="summary-row">
+                <span>Your donation:</span>
+                <strong id="summaryAmount">$50/mo</strong>
+              </div>
+              <div class="summary-row">
+                <span>Donation type:</span>
+                <strong id="summaryType">Sadaqah</strong>
+              </div>
+              <div class="summary-row highlight-row">
+                <span>Estimated reward:</span>
+                <strong>700x in Allah's sight (Quran 2:261)</strong>
+              </div>
+            </div>
+
+            <button class="btn btn-donate" id="donateBtn">
+              Complete Donation — $50/mo
+            </button>
+
+            <div class="payment-methods">
+              <span>Accepted payments:</span>
+              <div class="payment-icons">
+                <span class="payment-icon">VISA</span>
+                <span class="payment-icon">MC</span>
+                <span class="payment-icon">PayPal</span>
+                <span class="payment-icon">Apple Pay</span>
+              </div>
+            </div>
+
+            <p class="secure-note">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              Secure 256-bit SSL encrypted donation
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DONATION WALL ── -->
+  <section class="wall-section">
+    <div class="container">
+      <div class="wall-header">
+        <div>
+          <span class="section-label">Live Donations</span>
+          <h2>Join the People Already Giving</h2>
+        </div>
+        <div class="wall-live-badge">
+          <span class="live-dot"></span> Live
+        </div>
+      </div>
+      <div class="wall-grid" id="wallGrid"></div>
+      <div class="wall-cta">
+        <p>Your name could be on this wall. Join hundreds of Muslims giving right now.</p>
+        <a href="#donate" class="btn btn-primary">Add My Name — Donate Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SHARE SECTION ── -->
+  <section class="share-section">
+    <div class="container text-center">
+      <span class="section-label">Spread the Word</span>
+      <h2>Share This With Your Community</h2>
+      <p class="share-sub">
+        The Prophet ﷺ said: <em>"Whoever guides someone to goodness will have a reward like the one who did it."</em>
+        Share this page in your family group chat, your masjid WhatsApp, your social media.
+        Every person you bring here could save a child's life.
+      </p>
+      <div class="share-buttons">
+        <a class="share-btn share-whatsapp" id="shareWhatsapp" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Share on WhatsApp
+        </a>
+        <a class="share-btn share-twitter" id="shareTwitter" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.736-8.859L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Share on X
+        </a>
+        <a class="share-btn share-facebook" id="shareFacebook" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Share on Facebook
+        </a>
+        <button class="share-btn share-copy" id="shareCopy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span id="copyLabel">Copy Link</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FINAL CTA ── -->
+  <section class="final-cta">
+    <div class="container text-center">
+      <div class="final-arabic">اللَّهُمَّ بَارِكْ فِي أَمْوَالِنَا وَاجْعَلْهَا سَبَبًا لِنَجَاتِنَا</div>
+      <p class="final-dua-trans">"O Allah, bless our wealth and make it a means of our salvation."</p>
+      <h2>One Last Thing Before You Leave</h2>
+      <p class="final-p">
+        Right now, as you read this, a child in Gaza is crying from hunger. Not figuratively.
+        Literally. A real child, your Muslim brother or sister, whose parents cannot feed them.
+        That child's du'a is going up to Allah. You may be the answer to that prayer.
+      </p>
+      <p class="final-p">
+        On Yawm al-Qiyamah, Allah will ask: <em>"You saw them suffering. You had the means. What did you do?"</em>
+        You still have a chance to answer that question the right way.
+        Don't leave this page without giving. <strong>Even $10 feeds a child for a week.</strong>
+      </p>
+      <a href="#donate" class="btn btn-primary btn-large pulse">Yes — I Will Feed a Family Now</a>
+
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="color:var(--green-light);flex-shrink:0"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            Feed<strong>Gaza</strong>
+          </div>
+          <p>A humanitarian initiative dedicated to feeding starving families in Gaza. Rooted in Islamic values of compassion, justice, and solidarity.</p>
+          <div class="footer-arabic">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً</div>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#crisis">The Crisis</a></li>
+            <li><a href="#quran">Islamic Duty</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#donate">Donate</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Give</h4>
+          <ul>
+            <li><a href="#donate">Sadaqah</a></li>
+            <li><a href="#donate">Zakat</a></li>
+            <li><a href="#donate">Fidya / Kaffarah</a></li>
+            <li><a href="#donate">Monthly Giving</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 FeedGaza. All rights reserved. May Allah accept from us and from you. آمين</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── STICKY DONATE BAR (mobile) ── -->
+  <div class="sticky-donate" id="stickyDonate">
+    <div class="sticky-inner">
+      <span>Children are hungry right now</span>
+      <a href="#donate" class="btn btn-primary">Feed a Family</a>
+    </div>
+  </div>
+
+  <!-- ── MODAL ── -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <button class="modal-close" id="modalClose">&#x2715;</button>
+      <div class="modal-icon-svg">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48" style="color:var(--green)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <h3>JazakAllahu Khayran</h3>
+      <p>May Allah accept your donation and multiply your reward 700-fold. Your generosity will feed a family in Gaza.</p>
+      <div class="modal-arabic">اللَّهُمَّ تَقَبَّلْ مِنَّا</div>
+      <p style="font-size:13px; color: #666;">"O Allah, accept from us."</p>
+      <p style="font-size:12px; color:#888; margin-top:16px;">
+        In a real deployment, this would redirect to a secure payment processor.
+        Please set up Stripe or PayPal to start accepting donations.
+      </p>
+      <button class="btn btn-primary" id="modalOk" style="width:100%; margin-top:16px;">Ameen — Close</button>
+    </div>
+  </div>
+
+  <!-- ── EXIT INTENT POPUP ── -->
+  <div class="exit-overlay" id="exitOverlay">
+    <div class="exit-popup">
+      <button class="exit-close" id="exitClose">&#x2715;</button>
+      <div class="exit-image-col">
+        <img src="c75836217119e8b68619fb14d4262061.webp" alt="Severely malnourished infant in Gaza" />
+        <div class="exit-image-overlay"></div>
+      </div>
+      <div class="exit-content">
+        <div class="exit-arabic">وَأَطْعِمُوا الْبَائِسَ الْفَقِيرَ</div>
+        <div class="exit-arabic-trans">"And feed the poor and the one in misery." — Quran 22:28</div>
+        <h2>You're About to Leave.</h2>
+        <p>
+          This child cannot leave. He cannot close a tab. He cannot choose to look away.
+          He is lying there right now, his body wasting away, waiting for someone to care enough to act.
+        </p>
+        <p>
+          <strong>You have that power. You are holding it in your hands right now.</strong>
+          It takes 60 seconds to donate. That 60 seconds could keep a child alive for a month.
+        </p>
+        <a href="#donate" class="btn btn-primary btn-large pulse" id="exitDonateBtn">Feed the Children — Donate Now</a>
+        <button class="exit-leave" id="exitLeave">No thanks, I'll leave without donating</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
